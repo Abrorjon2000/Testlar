@@ -3,69 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ustoz Pro | Platforma v21.0</title>
+    <title>Ustoz Pro | Professional Platforma</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --primary: #6366f1; --success: #10b981; --bg: #f8fafc; --text: #1e293b; --error: #ef4444; }
+        :root { 
+            --primary: #6366f1; --secondary: #f43f5e; --success: #10b981; 
+            --bg: #f8fafc; --text: #1e293b; --wrong: #ef4444;
+        }
+
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); margin: 0; padding: 15px; color: var(--text); }
-        .container { max-width: 800px; margin: auto; }
-        .glass-card { background: white; border-radius: 24px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; margin-bottom: 20px; }
-        
-        .btn { background: var(--primary); color: white; border: none; padding: 16px; border-radius: 14px; font-weight: 700; cursor: pointer; width: 100%; transition: 0.3s; font-size: 16px; margin-top: 10px; }
-        .btn-sync { background: #8b5cf6; margin-bottom: 20px; }
-        .btn:active { transform: scale(0.98); }
-        
-        select, input { width: 100%; padding: 15px; border-radius: 12px; border: 2px solid #f1f5f9; margin-bottom: 12px; font-family: inherit; font-size: 16px; box-sizing: border-box; }
-        
-        #timer { font-size: 28px; font-weight: 800; color: #f43f5e; text-align: center; position: sticky; top: 10px; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 12px; z-index: 100; border: 1px solid #e2e8f0; backdrop-filter: blur(8px); }
-        
-        .q-card { background: white; padding: 20px; border-radius: 18px; border: 1px solid #e2e8f0; margin-bottom: 20px; }
-        .option-label { display: flex; align-items: center; padding: 14px; background: #f8fafc; border-radius: 12px; margin: 8px 0; cursor: pointer; border: 2px solid transparent; transition: 0.2s; }
-        .option-label:hover { border-color: var(--primary); background: #f1f5f9; }
-        
+        .container { max-width: 850px; margin: auto; }
+
+        .glass-card { 
+            background: white; border-radius: 24px; padding: 30px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; margin-bottom: 20px;
+        }
+
+        /* Taymer Dizayni */
+        #timer { 
+            font-size: 32px; font-weight: 800; color: var(--secondary); 
+            text-align: center; position: sticky; top: 10px; z-index: 1000;
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
+            border-radius: 20px; padding: 15px; margin-bottom: 25px;
+            border: 2px solid #e2e8f0; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Savol Kartochkalari */
+        .q-card { 
+            background: white; padding: 25px; border-radius: 20px; 
+            border: 1px solid #e2e8f0; margin-bottom: 20px; transition: 0.3s;
+        }
+        .q-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+
+        .option-label { 
+            display: flex; align-items: center; padding: 16px; 
+            background: #f1f5f9; border-radius: 14px; margin: 12px 0; 
+            cursor: pointer; transition: 0.2s; border: 2px solid transparent;
+        }
+        .option-label:hover { background: #e2e8f0; }
+        .option-label input { width: 22px; height: 22px; margin-right: 15px; accent-color: var(--primary); }
+
+        /* Tugmalar */
+        .btn { 
+            background: var(--primary); color: white; border: none; padding: 18px; 
+            border-radius: 16px; font-weight: 700; cursor: pointer; width: 100%; 
+            font-size: 16px; transition: 0.3s;
+        }
+        .btn-sync { background: #8b5cf6; margin-bottom: 25px; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3); }
+        .btn:active { transform: scale(0.97); }
+
+        /* Natija va Tahlil */
+        .review-card { border-left: 8px solid #cbd5e1; }
+        .review-correct { border-left-color: var(--success); background: #f0fdf4; }
+        .review-wrong { border-left-color: var(--wrong); background: #fef2f2; }
+
         .hidden { display: none; }
-        .review-correct { border-left: 6px solid var(--success); background: #f0fdf4; }
-        .review-wrong { border-left: 6px solid var(--error); background: #fef2f2; }
-        
-        .status-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-bottom: 10px; }
-        .tag-success { background: #dcfce7; color: #166534; }
-        .tag-error { background: #fee2e2; color: #991b1b; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div id="login-screen" class="glass-card">
-        <h1 style="text-align: center; color: var(--primary); margin-bottom: 5px;">Ustoz Pro</h1>
-        <p style="text-align:center; color:#64748b; margin-bottom:20px;">Platforma v21.0 | Zamaxshariy Izdoshlari</p>
+        <h1 style="text-align: center; color: var(--primary); font-size: 35px; margin-bottom: 5px;">Ustoz Pro</h1>
+        <p style="text-align:center; color:#64748b; margin-bottom:30px;">Zamaxshariy izdoshlari xususiy maktabi</p>
         
-        <button class="btn btn-sync" id="syncBtn" onclick="syncData()">🔄 Savollarni yangilash</button>
+        <button class="btn btn-sync" id="syncBtn" onclick="syncData()">🔄 Savollar bazasini yangilash</button>
         
-        <select id="sClass" onchange="updateUI()"><option value="">-- Sinfni tanlang --</option>
-            <option value="5-sinf">5-sinf</option><option value="6-sinf">6-sinf</option>
-            <option value="7-sinf">7-sinf</option><option value="8-sinf">8-sinf</option>
+        <select id="sClass" onchange="updateUI()" style="height: 60px;">
+            <option value="">-- Sinfni tanlang --</option>
+            <option value="5-sinf">5-sinf</option>
+            <option value="6-sinf">6-sinf</option>
+            <option value="7-sinf">7-sinf</option>
+            <option value="8-sinf">8-sinf</option>
         </select>
-        <select id="sName"><option value="">-- O'quvchini tanlang --</option></select>
-        <select id="sSub"><option value="">-- Fanni tanlang --</option></select>
+        <select id="sName" style="height: 60px;"><option value="">-- O'quvchini tanlang --</option></select>
+        <select id="sSub" style="height: 60px;"><option value="">-- Fanni tanlang --</option></select>
         
-        <button class="btn" onclick="startTest()">Testni boshlash</button>
+        <button class="btn" onclick="startTest()" style="height: 60px; font-size: 18px;">Testni boshlash</button>
     </div>
 
     <div id="test-screen" class="hidden">
         <div id="timer">20:00</div>
-        <div id="questions-area" style="margin-top: 20px;"></div>
-        <button class="btn" style="background:var(--success); margin-bottom: 50px;" onclick="finishTest()">Testni yakunlash</button>
+        <div id="questions-area"></div>
+        <button class="btn" style="background:var(--success); margin: 40px 0;" onclick="finishTest()">Testni yakunlash</button>
     </div>
 
     <div id="result-screen" class="hidden">
         <div class="glass-card" style="text-align:center">
-            <h2 id="res-student"></h2>
-            <div id="res-score" style="font-size: 55px; font-weight: 900; color: var(--primary);">0/0</div>
-            <p id="res-info" style="font-size: 18px; font-weight: 600; color: #64748b;"></p>
-            <button class="btn" onclick="location.reload()">Asosiy sahifaga qaytish</button>
+            <h2 id="res-student" style="margin-bottom: 0;"></h2>
+            <p id="res-meta" style="color: #64748b; margin-bottom: 20px;"></p>
+            <div id="res-score" style="font-size: 65px; font-weight: 900; color: var(--primary);">0/0</div>
+            <p id="res-percent" style="font-size: 20px; font-weight: 800; margin-bottom: 25px;"></p>
+            <button class="btn" onclick="location.reload()">Bosh sahifaga qaytish</button>
         </div>
+
         <div id="review-area" class="glass-card">
-            <h3>Xatolar tahlili:</h3>
+            <h3 style="margin-top:0">Xatolar tahlili:</h3>
             <div id="review-list"></div>
         </div>
     </div>
@@ -79,9 +113,10 @@
         APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbyYhT8gLQ21dT53OxOE8YkYeCSZ8zjNKHCJWaAC0L4dW3vJYkXCZ_ovOywS6yR1NrdB/exec"
     };
 
-    let db = JSON.parse(localStorage.getItem('ustoz_pro_v21')) || { qs: {} };
-    let currentTest = { qs: [] };
+    let db = JSON.parse(localStorage.getItem('ustoz_pro_v22')) || { qs: {} };
+    let currentTest = { qs: [], cheats: 0, startTime: null };
 
+    // O'quvchilar ro'yxati (Oldingidek saqlab qolindi)
     const STUDENTS = {
         "5-sinf": ["Yo‘ldoshaliyev Abdulahad", "Nabijonova Sitora", "Abdumutaliyeva Asalxon", "Usmonxo‘jayeva Diyoraxon", "Bekmirzayev Otabek", "Hakimjonov Hamidullo", "Rustamova Malikaxon", "Usmonaliyev Alisher", "Musajonov Hojimurod", "Alijonov Islombek", "Imomova Xushnoza", "Nu‘monova Madina", "Sobirov Muhammadbobur", "Zuxriddinova Yasminaxon", "Inomjonov Ibrohim", "Bannonov Abdulloh", "Saidmo'minova Muhsinaxon", "Muhammadolimov Fahriddin", "Odiljonova Muslimaxon"],
         "6-sinf": ["Nosirjonova Layloxon", "Muhammadaliyeva Sevaraxon", "Mamasoliyeva Hadicha", "To‘lqinjonova Shahzoda", "Mamasoliyeva Mubina", "Qo‘shoqboyev Muhammadaziz", "Mansurjonov Hojakbar", "Soliyev Shamsiddin", "G‘ulomjonov Muhammaddiyor", "Soliyev Ziyovuddin", "Rustamjonova Rayxona", "Alijonov Anasxon", "Yusufjonova Fotimaxon", "Mamadnosirov G'olibjon", "Odiljonova Salomatxon", "Abdulazizova Nozimaxon"],
@@ -117,25 +152,28 @@
                     db.qs[sinf][fan].push({q, a, b, c, d, cr});
                 }
             });
-            localStorage.setItem('ustoz_pro_v21', JSON.stringify(db));
-            alert("Savollar muvaffaqiyatli yangilandi!");
+            localStorage.setItem('ustoz_pro_v22', JSON.stringify(db));
+            alert("Baza muvaffaqiyatli yangilandi!");
         } catch(e) { alert("Xato: Internetni tekshiring!"); }
-        btn.innerText = "🔄 Savollarni yangilash";
+        btn.innerText = "🔄 Savollar bazasini yangilash";
     }
 
     function startTest() {
         const cls = document.getElementById('sClass').value, sub = document.getElementById('sSub').value, name = document.getElementById('sName').value;
         if(!cls || !sub || !name) return alert("Barcha maydonlarni to'ldiring!");
-        if(!db.qs[cls] || !db.qs[cls][sub]) return alert("Savollar topilmadi! Iltimos, yangilash tugmasini bosing.");
+        if(!db.qs[cls] || !db.qs[cls][sub]) return alert("Bu fan uchun savollar yuklanmagan!");
 
         currentTest.qs = [...db.qs[cls][sub]].sort(() => 0.5 - Math.random()).slice(0, 15);
+        currentTest.startTime = new Date();
+        currentTest.cheats = 0;
+
         document.getElementById('login-screen').classList.add('hidden');
         document.getElementById('test-screen').classList.remove('hidden');
 
-        const area = document.getElementById('questions-area');
-        area.innerHTML = currentTest.qs.map((q, i) => `
+        // Render Questions
+        document.getElementById('questions-area').innerHTML = currentTest.qs.map((q, i) => `
             <div class="q-card">
-                <p style="font-size: 18px;"><b>${i+1}. ${q.q}</b></p>
+                <p style="font-size: 19px; line-height:1.5;"><b>${i+1}. ${q.q}</b></p>
                 ${['a','b','c','d'].map(opt => `
                     <label class="option-label">
                         <input type="radio" name="q${i}" value="${opt}"> ${q[opt]}
@@ -144,77 +182,90 @@
             </div>
         `).join('');
 
-        let t = 20 * 60;
-        const timerInt = setInterval(() => {
-            let m = Math.floor(t/60), s = t%60;
+        // Timer
+        let time = 20 * 60;
+        const timerInterval = setInterval(() => {
+            let m = Math.floor(time/60), s = time%60;
             document.getElementById('timer').innerText = `${m}:${s<10?'0'+s:s}`;
-            if(--t < 0) { clearInterval(timerInt); finishTest(); }
+            if(--time < 0) { clearInterval(timerInterval); finishTest(); }
         }, 1000);
+
+        // Anti-Cheat (Focus loss detection)
+        window.onblur = () => {
+            currentTest.cheats++;
+            alert("DIQQAT! Sahifadan chiqish taqiqlanadi! Ogohlantirish: " + currentTest.cheats);
+        };
         window.scrollTo(0,0);
     }
 
     async function finishTest() {
+        window.onblur = null;
         let score = 0;
-        const reviewData = [];
+        const review = [];
+        
         currentTest.qs.forEach((q, i) => {
             const sel = document.querySelector(`input[name="q${i}"]:checked`)?.value;
             const isRight = sel === q.cr.toLowerCase();
             if(isRight) score++;
-            reviewData.push({ 
-                q: q.q, 
-                sel: sel ? q[sel] : "Belgilanmagan", 
-                cr: q[q.cr.toLowerCase()], 
-                isRight 
-            });
+            review.push({ q: q.q, sel: sel?q[sel]:"Belgilanmagan", cr: q[q.cr.toLowerCase()], isRight });
         });
 
         const percent = Math.round((score/currentTest.qs.length)*100);
-        const resultData = {
+        const data = {
             name: document.getElementById('sName').value,
             cls: document.getElementById('sClass').value,
             sub: document.getElementById('sSub').value,
             score,
             total: currentTest.qs.length,
             percent,
-            cheat: 0
+            cheat: currentTest.cheats,
+            time: new Date().toLocaleString()
         };
 
+        // UI Update
         document.getElementById('test-screen').classList.add('hidden');
         document.getElementById('result-screen').classList.remove('hidden');
-        document.getElementById('res-student').innerText = resultData.name;
-        document.getElementById('res-score').innerText = `${score} / ${resultData.total}`;
-        document.getElementById('res-info').innerText = `O'zlashtirish: ${percent}%`;
+        document.getElementById('res-student').innerText = data.name;
+        document.getElementById('res-meta').innerText = `${data.cls} | ${data.sub}`;
+        document.getElementById('res-score').innerText = `${score} / ${data.total}`;
+        document.getElementById('res-percent').innerText = `O'zlashtirish ko'rsatkichi: ${percent}%`;
 
-        document.getElementById('review-list').innerHTML = reviewData.map((r, i) => `
-            <div class="q-card ${r.isRight?'review-correct':'review-wrong'}">
-                <span class="status-tag ${r.isRight?'tag-success':'tag-error'}">${r.isRight?'TO\'G\'RI':'XATO'}</span>
+        document.getElementById('review-list').innerHTML = review.map((r, i) => `
+            <div class="q-card review-card ${r.isRight?'review-correct':'review-wrong'}">
                 <p><b>${i+1}. ${r.q}</b></p>
-                <p>Javobingiz: ${r.sel}</p>
+                <p>Javobingiz: <span style="color:${r.isRight?'green':'red'}">${r.sel}</span></p>
                 ${!r.isRight ? `<p style="color:var(--primary); font-weight:bold;">To'g'ri javob: ${r.cr}</p>` : ''}
             </div>
         `).join('');
 
-        sendDataToSheets(resultData);
+        // Send Data
+        sendResults(data);
         window.scrollTo(0,0);
     }
 
-    async function sendDataToSheets(data) {
-        // 1. Telegram
-        const msg = `📊 *TEST NATIJASI*\n\n👤 *O'quvchi:* ${data.name}\n🏫 *Sinf:* ${data.cls}\n📚 *Fan:* ${data.sub}\n✅ *Ball:* ${data.score}/${data.total} (${data.percent}%)`;
+    async function sendResults(d) {
+        // 1. Kengaytirilgan Telegram Analitikasi
+        const text = `📊 *YANGI TEST NATIJASI*\n\n` +
+                     `👤 *O'quvchi:* ${d.name}\n` +
+                     `🏫 *Sinf:* ${d.cls}\n` +
+                     `📚 *Fan:* ${d.sub}\n` +
+                     `✅ *To'g'ri:* ${d.score} / ${d.total}\n` +
+                     `📈 *Foiz:* ${d.percent}%\n` +
+                     `⚠️ *Chetlanish (Cheat):* ${d.cheat} marta\n` +
+                     `🕒 *Sana:* ${d.time}`;
+
         fetch(`https://api.telegram.org/bot${CONFIG.TG_TOKEN}/sendMessage`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({ chat_id: CONFIG.TG_CHAT, text: msg, parse_mode: 'Markdown' })
+            body: JSON.stringify({ chat_id: CONFIG.TG_CHAT, text: text, parse_mode: 'Markdown' })
         });
 
         // 2. Google Sheets
-        try {
-            await fetch(CONFIG.APPS_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify(data)
-            });
-        } catch(e) { console.error("Xatolik: Ma'lumot yuborilmadi"); }
+        fetch(CONFIG.APPS_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(d)
+        });
     }
 </script>
 </body>
